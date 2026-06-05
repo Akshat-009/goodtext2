@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>A Question For Naina ❤️</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <style>
+    :root {
+      --bg1: #ffd6e7;
+      --bg2: #ffeef6;
+      --card: #ffffffcc;
+      --yes: #ff3b7a;
+      --yesHover: #ff1f68;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at top, var(--bg2), var(--bg1));
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow: hidden;
+      padding: 16px;
+    }
+
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .card {
+      width: min(720px, 92vw);
+      padding: 28px 22px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 18px 60px rgba(0,0,0,.15);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .45s ease, transform .45s ease;
+      display: none;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+      display: block;
+    }
+
+    h1 {
+      font-size: clamp(26px, 4.5vw, 42px);
+      margin: 12px 0;
+      line-height: 1.25;
+    }
+
+    p {
+      font-size: 18px;
+      opacity: .85;
+      line-height: 1.4;
+    }
+
+    .question {
+      animation: popIn .5s ease;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      margin-top: 22px;
+      padding: 16px 32px;
+      font-size: 18px;
+      font-weight: 800;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: var(--yes);
+      color: white;
+      box-shadow: 0 10px 24px rgba(0,0,0,.14);
+      transition: transform .15s ease, background .15s ease;
+    }
+
+    .btn:hover {
+      background: var(--yesHover);
+      transform: translateY(-1px);
+    }
+
+    .dog-emoji {
+      font-size: 56px;
+      margin-bottom: 6px;
+      animation: dogBounce 2.6s ease-in-out infinite;
+      display: inline-block;
+    }
+
+    @keyframes dogBounce {
+      0%,100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .button-zone {
+      position: relative;
+      width: min(520px, 92%);
+      height: 160px;
+      margin: 0 auto;
+      touch-action: none;
+    }
+
+    button.choice {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 16px 26px;
+      font-size: 18px;
+      font-weight: 800;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0,0,0,.14);
+      user-select: none;
+    }
+
+    #yesBtn {
+      left: 12%;
+      background: var(--yes);
+      color: white;
+    }
+
+    #yesBtn:hover {
+      background: var(--yesHover);
+    }
+
+    #noBtn {
+      left: 62%;
+      background: #e5e7eb;
+      color: #111827;
+      transition: left .18s ease, top .18s ease;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 13px;
+      opacity: .7;
+    }
+
+    .loader-bar {
+      width: 100%;
+      height: 10px;
+      background: #eee;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .loader-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff3b7a, #ff85a2);
+      animation: load 2.5s ease forwards;
+    }
+
+    @keyframes load {
+      to {
+        width: 100%;
+      }
+    }
+
+    .final-gif {
+      width: min(320px, 80vw);
+      border-radius: 16px;
+      margin: 12px auto;
+      display: block;
+      box-shadow: 0 12px 30px rgba(0,0,0,.2);
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="confettiCanvas"></canvas>
+
+<!-- PAGE 1 -->
+<main class="card show" id="page1">
+  <h1>Hey Naina 👀</h1>
+
+  <p>
+    I have a tiny question for you.<br>
+    It might be important though 😌
+  </p>
+
+  <button class="btn" id="enterBtn">Enter 💌</button>
+</main>
+
+<!-- LOADING -->
+<main class="card" id="loading">
+  <h1>Thinking of the best way to ask this...</h1>
+  <p>give me a second 🫣</p>
+
+  <div class="loader-bar">
+    <div class="loader-fill"></div>
+  </div>
+</main>
+
+<!-- QUESTION -->
+<main class="card" id="page2">
+
+  <div class="dog-emoji" id="dog">🐶</div>
+
+  <h1 class="question">
+    Naina, would you like to go out with me? 🌹✨
+  </h1>
+
+  <section class="button-zone" id="zone">
+    <button class="choice" id="yesBtn">Yes 💖</button>
+    <button class="choice" id="noBtn">No 😐</button>
+  </section>
+
+  <div class="hint">
+    The No button seems nervous 👀
+  </div>
+
+</main>
+
+<!-- SUCCESS -->
+<main class="card" id="page3">
+
+  <h1>YAYYYYY 💖</h1>
+
+  <p style="font-size:22px;">
+    🥳 Mission Successful 🥳
+  </p>
+
+  <img
+    src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
+    alt="Celebration"
+    class="final-gif"
+  >
+
+  <p>
+    <strong>
+      Looks like I'm taking Naina out ❤️<br><br>
+      Can't wait to spend some time with you :)
+    </strong>
+  </p>
+
+</main>
+
+<script>
+
+const page1 = document.getElementById("page1");
+const loading = document.getElementById("loading");
+const page2 = document.getElementById("page2");
+const page3 = document.getElementById("page3");
+
+const enterBtn = document.getElementById("enterBtn");
+const dog = document.getElementById("dog");
+
+const confettiCanvas = document.getElementById("confettiCanvas");
+
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  confettiCanvas.width = innerWidth * dpr;
+  confettiCanvas.height = innerHeight * dpr;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+const confettiInstance = confetti.create(confettiCanvas, {
+  resize: false,
+  useWorker: true
+});
+
+function startConfetti() {
+  setInterval(() => {
+    confettiInstance({
+      particleCount: 80,
+      spread: 160,
+      startVelocity: 55,
+      origin: {
+        x: Math.random(),
+        y: Math.random() * 0.6
+      }
+    });
+  }, 300);
+}
+
+enterBtn.addEventListener("click", () => {
+
+  page1.classList.remove("show");
+
+  setTimeout(() => {
+    page1.style.display = "none";
+
+    loading.style.display = "block";
+    loading.classList.add("show");
+  }, 450);
+
+  setTimeout(() => {
+    loading.classList.remove("show");
+  }, 2800);
+
+  setTimeout(() => {
+    loading.style.display = "none";
+
+    page2.style.display = "block";
+    page2.classList.add("show");
+  }, 3200);
+
+});
+
+const noTexts = [
+  "No 😐",
+  "Are you sure? 👀",
+  "Really sure? 🤨",
+  "What if there's food involved? 🍜",
+  "Think again 😌",
+  "This button seems broken 🤔",
+  "Miss Overthinker strikes again 💕",
+  "Please? 🥺",
+  "I promise I'll bring flowers",
+   "I'll impress you with my Hockey skills ;)",
+  "Last chance ❤️"
+ 
+];
+
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const zone = document.getElementById("zone");
+
+let i = 0;
+let yesScale = 1;
+let last = 0;
+
+function tease() {
+
+  const now = Date.now();
+
+  if (now - last < 300) return;
+
+  last = now;
+
+  i = (i + 1) % noTexts.length;
+  noBtn.textContent = noTexts[i];
+
+  const z = zone.getBoundingClientRect();
+  const b = noBtn.getBoundingClientRect();
+
+  noBtn.style.left =
+    Math.random() * (z.width - b.width) + "px";
+
+  noBtn.style.top =
+    Math.random() * (z.height - b.height) + "px";
+
+  yesScale = Math.min(2.3, yesScale + 0.1);
+
+  yesBtn.style.transform =
+    `translateY(-50%) scale(${yesScale})`;
+}
+
+noBtn.addEventListener("mouseenter", tease);
+
+noBtn.addEventListener(
+  "touchstart",
+  e => {
+    e.preventDefault();
+    tease();
+  },
+  { passive: false }
+);
+
+yesBtn.addEventListener("click", () => {
+
+  dog.textContent = "🐶💖";
+
+  page2.classList.remove("show");
+
+  setTimeout(() => {
+
+    page2.style.display = "none";
+
+    page3.style.display = "block";
+    page3.classList.add("show");
+
+    startConfetti();
+
+  }, 400);
+
+});
+
+</script>
+
+</body>
+</html>
