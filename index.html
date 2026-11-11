@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#2B1712">
-<title>The Mohitha Food Date</title>
+<meta name="theme-color" content="#18291F">
+<title>A Little Mystery</title>
 <style>
-:root{--bg:#2B1712;--panel:#43241C;--cream:#FFF4E5;--muted:#D9B7A0;--red:#E66B4E;--blue:#8F4B35;--gold:#F4C76B;--absent:#67483C;--line:rgba(255,244,229,.18)}
+:root{--bg:#18291F;--panel:#263B2D;--cream:#FFF9E9;--muted:#C8D5BD;--red:#E5A84B;--blue:#9AB58A;--gold:#F4D77A;--absent:#435347;--line:rgba(255,249,233,.18)}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;background:var(--bg);color:var(--cream);font-family:Arial,Helvetica,sans-serif}
 body{min-height:100svh;padding:12px 9px calc(24px + env(safe-area-inset-bottom));display:flex;justify-content:center;overflow-x:hidden;-webkit-text-size-adjust:100%}
 main{width:min(100%,430px);position:relative;padding:0 2px}
 main:before,main:after{content:"";position:fixed;pointer-events:none;z-index:0;opacity:.13}
-main:before{width:230px;height:230px;left:-120px;top:80px;background:repeating-radial-gradient(circle at 100% 0,transparent 0 23px,rgba(244,240,232,.45) 24px 25px,transparent 26px 46px);transform:rotate(12deg)}
-main:after{width:250px;height:250px;right:-140px;bottom:130px;background:repeating-radial-gradient(circle at 0 100%,transparent 0 25px,rgba(244,199,107,.5) 26px 27px,transparent 28px 50px);transform:rotate(-9deg)}
+main:before{width:230px;height:230px;left:-120px;top:80px;background:repeating-radial-gradient(circle at 100% 0,transparent 0 23px,rgba(244,215,122,.48) 24px 25px,transparent 26px 46px);transform:rotate(12deg)}
+main:after{width:250px;height:250px;right:-140px;bottom:130px;background:repeating-radial-gradient(circle at 0 100%,transparent 0 25px,rgba(154,181,138,.55) 26px 27px,transparent 28px 50px);transform:rotate(-9deg)}
 header{text-align:center;padding-top:4px;position:relative;z-index:1}
 .eyebrow{margin:0 0 9px;font-size:8px;letter-spacing:.23em;color:var(--muted);font-weight:800}
 h1{margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38px,11.5vw,58px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase;max-width:100%;overflow-wrap:anywhere}
@@ -22,28 +22,28 @@ h1{margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38p
 .toolbar{display:flex;justify-content:center;margin:10px 0 7px;position:relative;z-index:2}
 .hint{border:1px solid var(--line);background:var(--panel);color:var(--cream);border-radius:10px;padding:9px 16px;font-size:11px;cursor:pointer}.hint:disabled{opacity:.45}
 #msg{min-height:18px;text-align:center;color:var(--gold);font-size:11px;font-weight:700;margin:1px auto 3px}
-#clueCard{display:block;width:min(94%,380px);margin:4px auto 9px;padding:14px 15px;border:1px solid rgba(244,240,232,.16);border-radius:13px;background:rgba(67,36,28,.88);color:var(--cream);font-size:clamp(14px,4.2vw,18px);font-weight:700;line-height:1.35;text-align:center;letter-spacing:-.01em;box-shadow:0 8px 24px rgba(0,0,0,.14)}#clueCard.show{display:block}.clue-label{display:block;color:var(--gold);font-weight:800;letter-spacing:.16em;font-size:8px;margin:0 0 6px;text-transform:uppercase}
+#clueCard{display:block;width:min(94%,380px);margin:4px auto 9px;padding:14px 15px;border:1px solid rgba(244,240,232,.16);border-radius:13px;background:rgba(38,59,45,.96);color:var(--cream);font-size:clamp(14px,4.2vw,18px);font-weight:700;line-height:1.35;text-align:center;letter-spacing:-.01em;box-shadow:0 8px 24px rgba(0,0,0,.14)}#clueCard.show{display:block}.clue-label{display:block;color:var(--gold);font-weight:800;letter-spacing:.16em;font-size:8px;margin:0 0 6px;text-transform:uppercase}
 .legend{width:min(100%,360px);margin:6px auto 8px;padding:7px 5px;border:1px solid var(--line);border-radius:10px;display:flex;justify-content:center;align-items:center;gap:4px;color:var(--muted);font-size:clamp(8px,2.5vw,9px);white-space:nowrap}.legend b{color:var(--cream);letter-spacing:.1em;font-size:8px;margin-right:3px}.sw{width:17px;height:17px;border-radius:4px;display:grid;place-items:center;font-weight:800;color:var(--cream);font-size:9px}.legend .correct{background:var(--red)!important;color:#fff!important}.legend .present{background:var(--gold)!important;color:#17140d!important}.legend .absent{background:var(--absent)!important;color:#91a19e!important}
 .round{font-size:8px;letter-spacing:.19em;color:var(--muted);text-align:center;margin:7px 0 6px}
 #board{width:min(92vw,335px);margin:7px auto 9px;display:flex;flex-direction:column;gap:5px;position:relative;z-index:2;visibility:visible;opacity:1}
 .row{width:100%;display:grid;gap:5px}
-.tile{width:100%;aspect-ratio:1/1;min-width:0;min-height:0;border:1px solid rgba(244,240,232,.18);border-radius:5px;background:#43241C;display:grid;place-items:center;font-size:clamp(17px,5.4vw,23px);font-weight:800;letter-spacing:.02em;color:var(--cream);user-select:none;transform-style:preserve-3d}
+.tile{width:100%;aspect-ratio:1/1;min-width:0;min-height:0;border:1px solid rgba(244,240,232,.18);border-radius:5px;background:#263B2D;display:grid;place-items:center;font-size:clamp(17px,5.4vw,23px);font-weight:800;letter-spacing:.02em;color:var(--cream);user-select:none;transform-style:preserve-3d}
 .tile.filled{border-color:rgba(244,240,232,.48);animation:pop .11s ease-out}
 .tile.flip{animation:flip .55s ease both}
 @keyframes pop{50%{transform:scale(1.045)}}
 @keyframes flip{0%{transform:rotateX(0)}45%{transform:rotateX(90deg)}55%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
-.tile.correct,.key.correct{background:#E66B4E!important;color:#fff!important;border-color:#E66B4E!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
-.tile.present,.key.present{background:#F4C76B!important;color:#111!important;border-color:#F4C76B!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
-.tile.absent,.key.absent{background:#67483C!important;color:#9BB0AE!important;border-color:#263B4B!important}
+.tile.correct,.key.correct{background:#E5A84B!important;color:#18291F!important;border-color:#E5A84B!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
+.tile.present,.key.present{background:#F4D77A!important;color:#18291F!important;border-color:#F4D77A!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.04)}
+.tile.absent,.key.absent{background:#435347!important;color:#C8D5BD!important;border-color:#435347!important}
 #keyboard{width:min(100%,400px);margin:7px auto 0;display:flex;flex-direction:column;gap:5px;position:relative;z-index:5}
 .krow{display:flex;justify-content:center;gap:4px;width:100%}.krow.middle{padding:0 4.5%}.spacer-key{flex:.5;min-width:0}
-.key{appearance:none;-webkit-appearance:none;flex:1;min-width:0;min-height:41px;height:41px;border:0;border-radius:6px;background:#593328;color:var(--cream);font-weight:800;font-size:clamp(9px,2.8vw,11px);cursor:pointer;touch-action:manipulation;-webkit-user-select:none;user-select:none}.key.wide{flex:1.55;font-size:8px}.key.back{font-size:17px}.key:active{transform:scale(.97)}
-.keyboard-label{text-align:center;margin:2px 0 3px;color:#627A7A;font-size:7px;letter-spacing:.18em;font-weight:800}.footer{text-align:center;margin:10px 0 0;color:#627A7A;font-size:7px;letter-spacing:.15em;text-transform:uppercase}
+.key{appearance:none;-webkit-appearance:none;flex:1;min-width:0;min-height:41px;height:41px;border:0;border-radius:6px;background:#354B3B;color:var(--cream);font-weight:800;font-size:clamp(9px,2.8vw,11px);cursor:pointer;touch-action:manipulation;-webkit-user-select:none;user-select:none}.key.wide{flex:1.55;font-size:8px}.key.back{font-size:17px}.key:active{transform:scale(.97)}
+.keyboard-label{text-align:center;margin:2px 0 3px;color:#9AAC91;font-size:7px;letter-spacing:.18em;font-weight:800}.footer{text-align:center;margin:10px 0 0;color:#9AAC91;font-size:7px;letter-spacing:.15em;text-transform:uppercase}
 #transition,#reveal{display:none;position:fixed;inset:0;background:rgba(3,9,14,.985);z-index:20;align-items:center;justify-content:center;padding:20px;overflow:hidden}
 #transition.show,#reveal.show{display:flex}
 .transition-hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:0}
 #transition.show .transition-hearts,#reveal.show .transition-hearts{opacity:1}
-.transition-heart{position:absolute;bottom:-35px;color:#E66B4E;font-size:18px;opacity:0;will-change:transform,opacity}
+.transition-heart{position:absolute;bottom:-35px;color:#E5A84B;font-size:18px;opacity:0;will-change:transform,opacity}
 .transition-heart:nth-child(1){left:7%;font-size:15px}.transition-heart:nth-child(2){left:18%;font-size:11px}.transition-heart:nth-child(3){left:30%;font-size:20px}.transition-heart:nth-child(4){left:43%;font-size:14px}.transition-heart:nth-child(5){left:55%;font-size:22px}.transition-heart:nth-child(6){left:68%;font-size:13px}.transition-heart:nth-child(7){left:81%;font-size:19px}.transition-heart:nth-child(8){left:92%;font-size:12px}
 #transition.show .transition-heart:nth-child(1){animation:floatHeart 3.4s .05s ease-out forwards}
 #transition.show .transition-heart:nth-child(2){animation:floatHeart 3.1s .35s ease-out forwards}
@@ -73,12 +73,12 @@ h1{margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38p
 #transition.show .transition-heart-center span{animation:centerHeart 1.35s cubic-bezier(.2,.75,.3,1) forwards}
 #transition.show .transition-heart-center span:nth-child(2){animation-delay:.1s}#transition.show .transition-heart-center span:nth-child(3){animation-delay:.2s}
 @keyframes centerHeart{0%{opacity:0;transform:translateY(30px) scale(.25)}20%{opacity:1}55%{opacity:1;transform:translateY(-8px) scale(1.18)}100%{opacity:0;transform:translateY(-72px) scale(1.45)}}
-.card{position:relative;width:min(92vw,410px);background:#43241C;border:1px solid var(--line);border-radius:18px;padding:25px 20px;text-align:center;box-shadow:0 20px 65px rgba(0,0,0,.55);z-index:3}
+.card{position:relative;width:min(92vw,410px);background:#263B2D;border:1px solid var(--line);border-radius:18px;padding:25px 20px;text-align:center;box-shadow:0 20px 65px rgba(0,0,0,.55);z-index:3}
 .transition-card{opacity:0;transform:translate3d(0,22px,0) scale(.96);pointer-events:none}
 #transition.card-ready .transition-card{animation:cardIn .65s cubic-bezier(.2,.85,.2,1) forwards;pointer-events:auto}
 @keyframes cardIn{0%{opacity:0;transform:translate3d(0,22px,0) scale(.96)}100%{opacity:1;transform:translate3d(0,0,0) scale(1)}}
 .card .kicker{font-size:8px;letter-spacing:.2em;color:var(--gold);font-weight:800}.transition-round{margin-top:7px;font-size:8px;letter-spacing:.18em;color:var(--muted)}
-.card h2{font:italic 30px/1.05 Georgia,"Times New Roman",serif;margin:12px 0 9px;color:var(--cream)}.card p{color:var(--muted);font-size:12px;line-height:1.5}.card button{margin-top:10px;border:1px solid rgba(244,240,232,.16);background:rgba(230,107,78,.13);color:var(--cream);border-radius:10px;padding:11px 18px;font-weight:800;cursor:pointer;min-height:43px}
+.card h2{font:italic 30px/1.05 Georgia,"Times New Roman",serif;margin:12px 0 9px;color:var(--cream)}.card p{color:var(--muted);font-size:12px;line-height:1.5}.card button{margin-top:10px;border:1px solid rgba(244,240,232,.16);background:rgba(229,168,75,.14);color:var(--cream);border-radius:10px;padding:11px 18px;font-weight:800;cursor:pointer;min-height:43px}
 #reveal{overflow:auto;opacity:0}
 #reveal.show{animation:finalFade .55s ease forwards}
 @keyframes finalFade{from{opacity:0}to{opacity:1}}
@@ -90,23 +90,25 @@ h1{margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38p
 #reveal.show .transition-heart-center span{animation:centerHeartFinal 1.5s cubic-bezier(.2,.75,.3,1) forwards}
 #reveal.show .transition-heart-center span:nth-child(2){animation-delay:.12s}#reveal.show .transition-heart-center span:nth-child(3){animation-delay:.24s}
 @keyframes centerHeartFinal{0%{opacity:0;transform:translateY(35px) scale(.2)}22%{opacity:1;transform:translateY(0) scale(1)}45%{opacity:1;transform:translateY(-8px) scale(1.28)}100%{opacity:0;transform:translateY(-95px) scale(1.55)}}
-.report{font-size:8px;letter-spacing:.2em;color:var(--gold);font-weight:800}.headline{font:italic 28px/1.08 Georgia,"Times New Roman",serif;margin:13px 0}.headline span{color:var(--red)}.note{color:var(--muted);font-size:12px;line-height:1.5}.proposal{margin-top:16px;border:1px solid rgba(244,199,107,.32);border-radius:13px;padding:14px}.proposal-label{font-size:8px;letter-spacing:.16em;color:var(--gold);font-weight:800}.proposal-title{font:italic 22px/1.05 Georgia,"Times New Roman",serif;margin:8px 0}.proposal-copy{color:var(--muted);font-size:11px;line-height:1.45}.proposal button{width:100%;margin-top:11px;background:var(--gold);color:#2B1712;border:0;border-radius:9px;padding:11px;font-weight:800}.sign{color:#627A7A;font-size:10px;line-height:1.4;margin-top:14px}.accepted{display:none;color:var(--gold);font-size:11px;font-weight:800;line-height:1.45;margin-top:12px}.accepted.show{display:block}
+.report{font-size:8px;letter-spacing:.2em;color:var(--gold);font-weight:800}.headline{font:italic 28px/1.08 Georgia,"Times New Roman",serif;margin:13px 0}.headline span{color:var(--red)}.note{color:var(--muted);font-size:12px;line-height:1.5}.proposal{margin-top:16px;border:1px solid rgba(244,215,122,.32);border-radius:13px;padding:14px}.proposal-label{font-size:8px;letter-spacing:.16em;color:var(--gold);font-weight:800}.proposal-title{font:italic 22px/1.05 Georgia,"Times New Roman",serif;margin:8px 0}.proposal-copy{color:var(--muted);font-size:11px;line-height:1.45}.proposal button{width:100%;margin-top:11px;background:var(--gold);color:#18291F;border:0;border-radius:9px;padding:11px;font-weight:800}.sign{color:#9AAC91;font-size:10px;line-height:1.4;margin-top:14px}.accepted{display:none;color:var(--gold);font-size:11px;font-weight:800;line-height:1.45;margin-top:12px}.accepted.show{display:block}
 .shake{animation:shake .3s ease}@keyframes shake{25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-3px)}}
-.food-mode .web-line{border-color:rgba(242,184,75,.13)}
-.food-mode .web-line:before,.food-mode .web-line:after{border-color:rgba(242,184,75,.09)}
-@media(max-width:380px){body{padding:9px 7px calc(20px + env(safe-area-inset-bottom))}.eyebrow{margin-bottom:7px}.sub{font-size:11px;margin-top:10px}.key{min-height:39px;height:39px}.headline{font-size:25px}}
+.garden-mode .web-line{border-color:rgba(244,215,122,.22)}
+.garden-mode .web-line:before,.garden-mode .web-line:after{border-color:rgba(154,181,138,.18)}
+@media(max-width:380px){body{padding:9px 7px calc(20px + env(safe-area-inset-bottom))}.eyebrow{margin-bottom:7px;font-size:7px}.sub{font-size:11px;margin-top:10px}.key{min-height:42px;height:42px}.headline{font-size:25px}.card{padding:22px 16px}.proposal{padding:12px}.proposal-title{font-size:21px}}
+@media(max-width:340px){#keyboard{gap:4px}.krow{gap:3px}.key{font-size:9px;min-height:39px;height:39px}.key.wide{font-size:7px}.legend{gap:3px;font-size:8px}.sw{width:15px;height:15px}.headline{font-size:23px}}
+@media(max-height:620px) and (max-width:700px){#reveal{align-items:flex-start;padding:12px}.reveal-card{margin:auto}.card{padding-top:17px;padding-bottom:17px}.headline{margin:9px 0}.proposal{margin-top:10px}}
 @media(max-height:730px) and (max-width:500px){.sub{display:none}.toolbar{margin:7px 0 5px}.round{margin:5px 0}.tile{font-size:17px}.key{min-height:38px;height:38px}.footer{margin-top:7px}}
 </style>
 </head>
 <body>
 <main id="app">
 <header>
-<p class="eyebrow">A LITTLE SOMETHING FOR MOHITHA</p>
-<h1><span class="title-line soft">CATS, NAPS</span><span class="title-line accent">& FOOD<span class="heart">♥</span></span></h1>
-<p class="sub">Three very important things about you, Mohitha. The last one comes with a question. ☕</p>
+<p class="eyebrow">A LITTLE SOMETHING JUST FOR YOU</p>
+<h1><span class="title-line soft">A LITTLE</span><span class="title-line accent">MYSTERY<span class="heart">✦</span></span></h1>
+<p class="sub">Three tiny rounds. A few clues. One question I have been meaning to ask you.</p>
 </header>
 
-<div id="clueCard" class="show"><span class="clue-label" id="clueLabel">CURRENT CLUE</span><span id="clueText">Three rounds. Three very Mohitha things. And one little question at the end.</span></div>
+<div id="clueCard" class="show"><span class="clue-label" id="clueLabel">CURRENT CLUE</span><span id="clueText">A tiny investigation into a few things that make you, well... you.</span></div>
 <div id="msg"></div>
 <div class="legend" aria-label="How to play">
   <b>HOW TO PLAY</b>
@@ -116,7 +118,7 @@ h1{margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38p
 </div>
 <div class="round" id="roundLabel">ROUND 01</div>
 <div id="board" aria-label="Wordle board"></div>
-<div class="keyboard-label">TAP TO TYPE · NO CATS ALLOWED</div>
+<div class="keyboard-label">TAP TO TYPE · TRUST YOUR INSTINCTS</div>
 <div id="keyboard" aria-label="On-screen keyboard">
 <div class="krow">
 <button class="key" data-key="Q">Q</button><button class="key" data-key="W">W</button><button class="key" data-key="E">E</button><button class="key" data-key="R">R</button><button class="key" data-key="T">T</button><button class="key" data-key="Y">Y</button><button class="key" data-key="U">U</button><button class="key" data-key="I">I</button><button class="key" data-key="O">O</button><button class="key" data-key="P">P</button>
@@ -128,15 +130,15 @@ h1{margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38p
 <button class="key wide" data-key="ENTER">ENTER</button><button class="key" data-key="Z">Z</button><button class="key" data-key="X">X</button><button class="key" data-key="C">C</button><button class="key" data-key="V">V</button><button class="key" data-key="B">B</button><button class="key" data-key="N">N</button><button class="key" data-key="M">M</button><button class="key wide back" data-key="BACK">⌫</button>
 </div>
 </div>
-<div class="footer">made for Mohitha, with food and feelings ✦</div>
+<div class="footer">a little curiosity, just for you ✦</div>
 </main>
 
 <div id="transition">
 <div class="web-line one"></div><div class="web-line two"></div>
-<div class="transition-hearts"><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span></div>
-<div class="transition-heart-center"><span>♥</span><span>♥</span><span>♥</span></div>
+<div class="transition-hearts"><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span></div>
+<div class="transition-heart-center"><span>✿</span><span>✿</span><span>✿</span></div>
 <div class="card transition-card">
-<div class="kicker">ROUND CLEARED ♥</div>
+<div class="kicker">ROUND CLEARED ✿</div>
 <div class="transition-round" id="transitionRound">ROUND 01 CLEARED</div>
 <h2 id="transitionTitle">Okay, this is promising.</h2>
 <p id="transitionText"></p>
@@ -146,26 +148,23 @@ h1{margin:0 auto;font-family:Georgia,"Times New Roman",serif;font-size:clamp(38p
 
 <div id="reveal">
 <div class="web-line one"></div><div class="web-line two"></div>
-<div class="transition-hearts"><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span><span class="transition-heart">♥</span></div>
-<div class="transition-heart-center"><span>♥</span><span>♥</span><span>♥</span></div>
+<div class="transition-hearts"><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span><span class="transition-heart">✿</span></div>
+<div class="transition-heart-center"><span>✿</span><span>✿</span><span>✿</span></div>
 <div class="card reveal-card">
 <div class="report">FINAL RESULT</div>
-<div class="headline"><span>MOHITHA, LET’S MAKE A FOOD PLAN. ❤️</span></div>
+<div class="headline"><span>THERE'S A PLACE<br>WITH OUR NAME ON IT ✦</span></div>
 <div class="note">
-Official findings:<br><br>
-🐈 Cats? Absolutely not. Understood.<br>
-😴 Naps? Always a respectable plan.<br>
-🍜 Great food? Now we’re talking. And I have a little idea. 😉
-<br><br><strong>Mohitha, ready for the real question?</strong>
+I have a feeling your stories are as lovely as your smile. And honestly, that smile deserves more than a passing compliment. I would love to hear the stories behind it, find a few flowers worth pausing for, and explore somewhere new with you.
+<br><br><strong>Akankchha, can I ask you something?</strong>
 </div>
 <div class="proposal">
 <div class="proposal-label">THE ACTUAL QUESTION</div>
-<div class="proposal-title">No cats.<br>Nap-friendly timing.<br>Really good food, with me?</div>
-<div class="proposal-copy">You pick what we eat, I’ll find the place. We can schedule it around your nap, obviously.</div>
-<button id="acceptBtn">Mohitha, will you go on a food date with me? ♡</button>
-<div class="accepted" id="accepted">SHE SAID YES? 🍝❤️<br><br>You choose the food, I’ll plan the date. No cats, no rush, and absolutely no judgement if you need a nap first.</div>
+<div class="proposal-title">Your lovely smile.<br>A hundred little stories.<br>One new favourite place in Bangalore.</div>
+<div class="proposal-copy">How about we explore Bangalore together, trade a few life stories, and find that new favourite place you have been looking for this year? I will bring the curiosity. You just bring that smile. ✦</div>
+<button id="acceptBtn">So, shall we find our new favourite place in Bangalore? ♡</button>
+<div class="accepted" id="accepted">Wait, is that a yes? ♡<br><br>Lovely. I am already looking forward to the stories, the city exploring, and that smile across the table. 😊</div>
 </div>
-<div class="sign">Carefully prepared with a little effort, a lot of food talk, and one hopeful question. ♡</div>
+<div class="sign">No pressure. Just a little hope for a lovely evening in Bangalore. ♡</div>
 </div>
 </div>
 
@@ -175,45 +174,45 @@ Official findings:<br><br>
 
   const rounds = [
     {
-      word: "CATS",
-      label: "ROUND 01 · A VERY IMPORTANT DISCLAIMER",
+      word: "BLOOM",
+      label: "ROUND 01 · A LITTLE COLOUR",
       clues: [
-        "A furry little animal that Mohitha would rather keep at a distance.",
-        "Internet videos adore them. You? Not so much.",
-        "They meow, climb things, and are definitely not invited.",
-        "Four letters.",
-        "Starts with C.",
-        "The animal you absolutely do not want around. 🐈‍⬛"
+        "A little sunshine, a little colour, and suddenly a day feels brighter.",
+        "Some arrive looking like tiny suns; others are all graceful curves.",
+        "Think of a garden with a sunflower, an orchid, and a tulip in it.",
+        "Five letters.",
+        "Starts with B.",
+        "What all those lovely flowers have in common: they do this."
       ],
-      transitionTitle: "Noted. No cats. Ever.",
-      transitionText: "Your boundaries have been recorded.<br>Next up: your favourite way to recharge.",
-      button: "Next clue →"
+      transitionTitle: "A lovely start.",
+      transitionText: "You clearly have an eye for the little things that make the world brighter.<br>Now, on to something with a little more depth.",
+      button: "Keep going →"
     },
     {
-      word: "NAPS",
-      label: "ROUND 02 · PRIORITIES FIRST",
+      word: "TALES",
+      label: "ROUND 02 · THE GOOD STUFF",
       clues: [
-        "A tiny escape from the world that somehow lasts two hours.",
-        "The best plan after a long day, a full meal, or honestly anytime.",
-        "Pillow + blanket + closed eyes = absolute bliss.",
-        "Four letters.",
-        "Starts with N.",
-        "The activity that should never be interrupted without a good reason. 😴"
+        "The best conversations rarely stay on the surface.",
+        "A long walk, a cup of coffee, and one of these can make hours disappear.",
+        "Everyone has a few: the unexpected turns, the funny bits, the chapters that shaped them.",
+        "Five letters.",
+        "Starts with T.",
+        "The little stories about life that you love hearing."
       ],
-      transitionTitle: "Naps are sacred. Understood.",
-      transitionText: "I respect the sleep schedule.<br>Now, onto something worth waking up for.",
+      transitionTitle: "I could listen for hours.",
+      transitionText: "The world is full of people with stories worth hearing. I have a feeling our conversation could be a good one too.<br>One last round.",
       button: "One last round →"
     },
     {
-      word: "FOOD",
-      label: "ROUND 03 · THE REAL MOTIVATION",
+      word: "PLACE",
+      label: "ROUND 03 · SOMEWHERE SPECIAL",
       clues: [
-        "The fastest way to turn a maybe into a yes.",
-        "Something delicious, ideally shared with good company.",
-        "The plan involves a menu, a table, and you and me.",
-        "Four letters.",
-        "Starts with F.",
-        "Solve this, Mohitha, and I can finally ask you something. 🍜"
+        "Not every memorable moment needs a big plan. Sometimes the setting helps.",
+        "It could be a quiet corner, a little café, a view, or somewhere entirely unexpected.",
+        "There is one you are hoping to discover before this year is over.",
+        "Five letters.",
+        "Starts with P.",
+        "Your favourite somewhere. Maybe we could go looking for it together."
       ]
     }
   ];
@@ -281,8 +280,7 @@ Official findings:<br><br>
     makeBoard();
     resetKeyboard();
 
-    document.body.classList.toggle("nap-mode", false);
-    document.body.classList.toggle("food-mode", true);
+    document.body.classList.toggle("garden-mode", true);
   }
 
   function typeLetter(letter) {
